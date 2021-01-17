@@ -1,23 +1,102 @@
 ﻿<!DOCTYPE html> 
 <html> 
 <head> 
-    <title>HTML5 with Hanbit</title> 
-    <!-- 초기화 --> 
+    <title>pinterest</title> 
+    <!--모바일-->
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,minimum-scale=1.0,maximum-scale=1.0,user-scalable=no" />>
+    <!--초기화-->
     <style> 
+        *{
+            margin:0; padding:0;
+            font-family: 'Malgun Gothic', sans-serif;
+        }
 
+        a{text-decoration:none;}
+        img{border:0;}
+        li{list-style:none;}
+        html{ background: #f7f5f5;}
     </style> 
+
     <!-- 헤더 --> 
     <style> 
-
+        #main-header{
+            height:40px;
+            background:#faf7f7;
+            position: relative;
+        }
+        .header-search-form{ float:left;}
+        .header-menu{float:right;}
+        .header-title{
+            position:absolute;
+            width:200px; height:40px;
+            left:50%; margin-left:-100px;
+            background:url('logo.png');
+            background-repeat: no-repeat;
+            text-indent: -9999px;
+        }
     </style> 
+
     <!-- 드롭다운 --> 
     <style> 
+        .outer-menu{
+            float:left;
+            width:100px; height:20px;
+            line-height: 20px;
+            padding: 10px 0;
+            position: relative;
+            text-align: center;
 
+            font-size: 13px;
+            font-weight: bold;
+
+            z-index: 9999;
+        }
+        .outer-menu:hover{background:#E1DFDF;}
+        .inner-menu{
+            display: none;
+            background: #FFFFFF;
+            margin-top:10px;
+            width:100%;
+
+            border-top:1px solid #cccaca;
+            box-shadow:0 2px 4px rgba(34, 25, 25, 0.5);
+        }
+        
+        .inner-menu a{
+            display: block;
+            padding: 5px 10px;
+            z-index: 5000;
+        }
+        .inner-menu a:hover {background : #E1DFDF;}
     </style> 
+
     <!-- 네비게이션 메뉴 --> 
     <style> 
-
+        #main-navigation{
+            height:30px;
+            background:#faf7f7;
+            border-top:1px solid #cfcaca;
+            box-shadow: 1px 3px 3px rgba(34, 25, 25, 0.4);
+        }
+        
+        #main-navigation > ul{
+            overflow:hidden;
+            text-align: center;
+        }
+        #main-navigation > ul > li{
+            display: inline;
+            padding:0 5px;
+            line-height:30px;
+            font-size: 13px;
+            color: #524D4D;
+            text-shadow: 0 1px 1px white;
+        }
+        #main-navigation > ul > li:hover{
+            background: #E1DFDF;
+            border-radius: 2px;
+        }
     </style> 
+    
     <!-- 검색 양식 --> 
     <style> 
 
@@ -50,8 +129,7 @@
                 <input type="submit" class="input-search-submit" value="검색" /> 
             </form> 
         </div> 
-        <h1 class="header-title">Inte
-            rest</h1> 
+        <h1 class="header-title">Interest</h1> 
         <div class="header-menu"> 
             <ul class="outer-menu"> 
                 <li> 
