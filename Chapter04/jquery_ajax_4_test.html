@@ -7,15 +7,15 @@
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
- 
- 
- 
- 
- 
- 
- 
- 
- 
+   $.ajax({
+      url:"rank.json",
+      dataType:"json",
+      success:function(result){
+         $.each(result.rank, function(i,d){
+            $("#wrap ol").append("<li>"+d["k"]+"</li>");
+         });
+      }
+   });
 });
 //]]>
 </script>

@@ -7,20 +7,19 @@
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+  $.ajax({
+     url:"rank.xml",
+     dataType:"xml",
+     success:function(result){
+        if($(result).find("rank").length>0){//<rank>태그 개수
+           $(result).find("rank").each(function(){//<rank>태그 개수 만큼 각각
+              var name=$(this).find("k").text();//<k>태그에 텍스트를 변수 name에 할당
+              var result="<li>"+name+"</li>";//<li>태그의 변수 name에 할당된 값을 텍스트로 저장
+              $("#wrap ol").append(result);//id="wrap" 요소인 하위 <ol> 태그에 삽입
+           });
+        }
+     }
+  });
 });
 //]]>
 </script>
