@@ -9,34 +9,28 @@ $(function(){
 //변수 g에 크로스 도메인의 데이터를 가져올 수 있도록 구글 주소를 저장하였습니다.
   var g="https://ajax.googleapis.com/ajax/services/feed/load?v=2.0&num=10&callback=?&q=";
 
+  $("#news_wrap h2 a").on("click", function(e){
+    e.preventDefault();//<a>태그에 링크를 차단
+    $("#news_wrap h2 a").removeClass("on");//<a>에 "on" class를 삭제
+    $(this).addClass("on");//클릭한 <a>에 class="on" 생성
+    $.ajax({
+      url:g+$(this).attr("href"),//요청할 데이터 경로
+      dataType: "json",//요청할 데이터 타입
+      success: function(data){//성공적인 요청일 때
+        $("#news_list").empty();//<ul>에 하위 요소를 모두 제거
+        $.each(data.responseData.feed.entries,function(i, d){
+          if (i==5) return false;
+          var title=d["title"];//title 키를 가져옴
+          var date=new date(d["publishedDate"]);
+          var m = date.getFullYear()+"-"+(date.getMonth() +1)+"-"+date.getDate();
+          var lk=d["link"];
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+          $("#news_list").append('<li><a href="'+lk+'" target="_blank">'+title+'</a> <span>'+m+'</span></li>' );
+        });
+      }
+    });
+  });
+  $("#news_wrap h2 a").eq(0).click();
 });
 </script>
 <style type="text/css">
