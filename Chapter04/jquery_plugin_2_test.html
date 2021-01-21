@@ -4,33 +4,33 @@
 <meta http-equiv="content-type" content="text/html;charset=utf-8" />
 <title> Plugin </title>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-
+<script type="text/javascript" src="js/jquery.bxslider.min.js"></script>
 <script type="text/javascript">
 //<![CDATA[
 $(function(){
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
+   var mySlider=$("#slide_banner").bxSlider({
+      mode:"horizontal",
+      speed:500,
+      pager:false,
+      moveSlides:1,
+      slideWidth:90,
+      minSlides:4,
+      maxSlides:4,
+      slideMargin:10,
+      auto:true,
+      autoHover:true,
+      controls:false
+   });
+
+   $("#prevBtn").on("click",function(){
+      mySlider.goToPrevSlide();
+      return false;
+   });
+
+   $("#nextBtn").on("click",function(){
+      mySlider.goToNextSlide();
+      return false;
+   });
 });
 //]]>
 </script>

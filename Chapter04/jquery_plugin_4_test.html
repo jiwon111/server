@@ -29,26 +29,25 @@ img{width:100%; max-width:100%;}
 </style>
 <link href='css/style.css' rel='stylesheet'/>
 <script type="text/javascript" src="js/jquery-1.10.2.min.js"></script>
-
+<script type="text/javascript" src="js/swipe.js"></script>
 <script type="text/javascript">
 $(function(){
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
- 
+  window.mySwipe=$('#mySwipe').Swipe({
+    startSlide:0,
+    auto:3000,
+    continuous:true,
+    disableScroll:true,
+    stopPropagation:true,
+    callback:function(index, element){},
+    transitionEnd:function(index, element){}
+  }).data('Swipe');
+
+  $(".prevBtn").on("click", function(){
+    mySwipe.prev();
+  });
+  $(".nextBtn").on("click", function(){
+    mySwipe.next();
+  });
 });
 </script>
 </head>
